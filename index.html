@@ -3,10 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Rock | Paper | Scissors</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     
+    <div class="container">
+
+        <header>
+            <h1>game heads.</h1>
+            <p>Rock, paper, scissors is a strategic game. That's why I haven't </br> lost a game since I started playing the sport. </p>
+        </header>
+
+        <div class="game">
+
+            <div class="game__play">
+                <p class="msg">Rock, paper, scissors?</p>
+
+                <div class="player_vs_computer">
+                    <div class="player1"></div>
+                    <div class="computer"></div>
+                </div>
+                
+                <hr>
+
+                <ul class="game__btns">
+                    <li>
+                        <button class="rock"></button>
+                    </li>
+                    <li>
+                        <button class="paper"></button>
+                    </li>
+                    <li>
+                        <button class="scissors"></button>
+                    </li>
+                      
+                </ul>
+            </div>
+
+            <div class="score__board">
+                <p class="score">Score Board</p>
+
+                <div class="board">
+                    <p class="player__points">Player 1</p>
+                    <h2 class="points">0</h2>
+                    <hr>
+                    <p class="player__points">Computer</p>
+                    <h2 class="points">0</h2>
+                </div>
+            </div>
+        </div>
+
+        <footer>© 2023 Built by: Shamouy Gibbs</footer>
+
+    </div>
 
     <script src="./app.js"></script>
 </body>
