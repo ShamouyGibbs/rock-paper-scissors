@@ -1,0 +1,104 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #292929;
+    color: white;
+}
+
+.container {
+    padding: 60px 330px;
+}
+
+header {
+    margin-bottom: 60px;
+}
+
+h1 {
+    font-size: 72px;
+    margin-bottom: 6px;
+}
+
+.game {
+    background: #1F1F1F;
+    padding: 60px;
+    display: flex;
+    gap: 30px;
+    /* justify-content: space-between; */
+    /* margin-right: 250px; */
+    margin-bottom: 30px;
+    border-radius: 15px;
+}
+
+.player1 {
+    background: #8FAFFF;
+    width: 150px;
+    height: 150px;
+}
+
+.computer {
+    background: #98FF8F;
+    width: 150px;
+    height: 150px;
+}
+
+.board {
+    background-color: #353534;
+    padding: 6px;
+    width: 150px;
+    height: 260px;
+    border-radius: 9px;
+}
+
+.msg {
+    margin-bottom: 27px ;
+    padding-left: 9px;
+    border-left: solid rgb(255, 255, 255) 3px;
+}
+
+.player_vs_computer {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.play__box {
+    border-radius: 15px;
+}
+
+.score {
+    margin-bottom: 27px;
+}
+
+.player__points {
+    padding: 9px 0;
+}
+
+.points {
+    font-size: 70px;
+}
+
+.player__points, .points {
+    text-align: center;
+}
+
+button {
+    background: #BCBCBD;
+    width: 100px;
+    height: 40px;
+    border: none;
+    border-radius: 9px;
+}
+
+.game__btns {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 30px;
+}
+
+li {
+    list-style: none;
+}
