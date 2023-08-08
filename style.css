@@ -10,11 +10,16 @@ body {
 }
 
 .container {
-    padding: 60px 330px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: auto;
+    padding: 60px;
 }
 
 header {
     margin-bottom: 60px;
+    text-align: center;
 }
 
 h1 {
@@ -31,6 +36,8 @@ h1 {
     /* margin-right: 250px; */
     margin-bottom: 30px;
     border-radius: 15px;
+    min-width: 630px;
+    max-width: 630px;
 }
 
 .player1 {
@@ -67,6 +74,14 @@ h1 {
 
 .play__box {
     border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.choice {
+    width: 125px;
+    height: 125px;
 }
 
 .score {
@@ -91,6 +106,7 @@ button {
     height: 40px;
     border: none;
     border-radius: 9px;
+    cursor: pointer;
 }
 
 .game__btns {
@@ -101,4 +117,21 @@ button {
 
 li {
     list-style: none;
+}
+
+.reset_game{
+    padding: 15px 6px 0;
+    color: #98FF8F;
+    cursor: pointer;
+}
+
+.player__color{
+    color: #8FAFFF;
+}
+.computer__color{
+    color: #98FF8F;
+}
+
+hr {
+    border-bottom: none;
 }

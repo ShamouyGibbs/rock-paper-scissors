@@ -1,75 +1,120 @@
+//Constants/Variables
+const msg1 = document.querySelector(".msg");
+const playerCard = document.querySelector(".player-choice");
+const compCard = document.querySelector(".computer-choice");
+const playerScore = document.querySelector(".player__score");
+const compScore = document.querySelector(".computer__score");
+const playBtn = document.querySelectorAll(".play__btn");
+const resetGame = document.querySelector(".reset_game");
+
 //Rock, Paper, Scissors Game
-const choices = ["rock", "paper", "scissors"];
-let round = 0;
+let rounds = 1;
 let computerPoints = 0;
 let playerPoints = 0;
+let playerChoice;
+
+//EVENT LISTENER
+playBtn.forEach(item => {
+    item.addEventListener('click', event => {
+
+       playerChoice = event.target.innerText.toLowerCase();
+       game();
+
+    })
+})
+
+resetGame.addEventListener('click', event => {
+    rounds = 1;
+    computerPoints = 0;
+    playerPoints = 0;
+    playerScore.innerText = playerPoints;
+    compScore.innerText = computerPoints;
+    msg1.innerText = "Lets play again. Rock, paper, scissors?"
+    resetGame.innerText = "";
+})
+
 
 // Allow the computer to choose rock, paper or scissors
 function getComputerChoice (){
 
-    let computerChoice = choices[Math.floor((Math.random() * 3) + 1) - 1];
-    return computerChoice;
+    let computerChoice = playBtn[Math.floor((Math.random() * 3) + 1) - 1].innerText.toLowerCase();
+    if (computerChoice === "rock"){
+        compCard.src = "./Assets/rock.png";
+        return computerChoice;
+    } else if (computerChoice === "paper"){
+        compCard.src = "./Assets/paper.png";
+        return computerChoice;
+    } else {
+        compCard.src = "./Assets/scissors.png";
+        return computerChoice;
+    }
 }
 
 //Check player selection
-function checkPlayerSelection (){
-    let player1 = prompt("Choose: rock, paper, or scissors").toLowerCase();
-    
-    if (player1 === "rock"){
-        return player1;
+function getPlayerChoice (choice){
 
-    } else if (player1 === "paper"){
-        return player1;
+    if (choice === "rock"){
+        playerCard.src = "./Assets/rock.png";
+        return choice;
 
-    } else if (player1 === "scissors"){
-        return player1;
+    } else if (choice === "paper"){
+        playerCard.src = "./Assets/paper.png";
+        return choice;
 
-    } else return checkPlayerSelection();
+    } else {
+        playerCard.src = "./Assets/scissors.png"
+        return choice;
+    }
         
 }
 
 //Game logic
 function playRound (playerSelection, computerSelection){
 
-    if(playerSelection === computerSelection){
-        return alert(`ROUND: ${round}, It's a Draw!`);
+        if(playerSelection === computerSelection){
+            msg1.innerText = `ROUND: ${rounds++}, It's a Draw!`;
 
-    } else if (playerSelection === "rock" && computerSelection === "paper"){
-        computerPoints++;
-        return alert(`ROUND: ${round}, You lose, ${computerSelection} beats ${playerSelection}!`);
+        } else if (playerSelection === "rock" && computerSelection === "paper"){
+            msg1.innerText = `ROUND: ${rounds++}, You lose, ${computerSelection} beats ${playerSelection}!`;
+            computerPoints++;
 
-    } else if (playerSelection === "paper" && computerSelection === "scissors"){
-        computerPoints++;
-        return alert(`ROUND: ${round}, You lose, ${computerSelection} beats ${playerSelection}!`);
+        } else if (playerSelection === "paper" && computerSelection === "scissors"){
+            msg1.innerText = `ROUND: ${rounds++}, You lose, ${computerSelection} beats ${playerSelection}!`;
+            computerPoints++;
 
-    } else if (playerSelection === "scissors" && computerSelection === "rock"){
-        computerPoints++;
-        return alert(`ROUND: ${round}, You lose, ${computerSelection} beats ${playerSelection}!`);
+        } else if (playerSelection === "scissors" && computerSelection === "rock"){
+            msg1.innerText = `ROUND: ${rounds++}, You lose, ${computerSelection} beats ${playerSelection}!`;
+            computerPoints++;
 
-    } else {
-        playerPoints++;
-        return alert(`ROUND: ${round}, You Win!!! ${playerSelection} beats ${computerSelection}`)
+        } else {
+            msg1.innerText = `ROUND: ${rounds++}, You Win!!! ${playerSelection} beats ${computerSelection}`;
+            playerPoints++;
+        }
+
+            // GAME SCORE
+            playerScore.innerText = playerPoints;
+            compScore.innerText = computerPoints;
     }
-}
 
 //Game play (Allow the game to play a number of rounds)
 function game (){
-    let rounds = prompt("Let's play Rock, Paper, Scissors. How many rounds should we play?");
-    playerPoints = 0;
-    computerPoints = 0;
 
-    for(round = 1; round <= rounds; round++){
-        playRound(checkPlayerSelection(), getComputerChoice())
-    }
+    if (rounds < 5){
+        playRound(getPlayerChoice(playerChoice), getComputerChoice());
 
-    if (computerPoints == playerPoints){
-        return alert(`IT'S A DRAW. Player 1 score: ${playerPoints} || Computer score: ${computerPoints}`);
-
-    } else if (computerPoints > playerPoints){
-        return alert(`You lose. Computer score: ${computerPoints} || Player 1 score: ${playerPoints}`);
-
-    }else {
-        return alert(`You Win!!! Player 1 score: ${playerPoints} || Computer score: ${computerPoints}`);
+    } else if (rounds >= 5){
+        if (computerPoints == playerPoints){
+            resetGame.innerText = "Play again?";
+            return msg1.innerText = `IT'S A DRAW. Your score: ${playerPoints} || Computer score: ${computerPoints}`;
+    
+        } else if (computerPoints > playerPoints){
+            resetGame.innerText = "Play again?";
+            return msg1.innerText = `You lose. Computer score: ${computerPoints} || Your score: ${playerPoints}`;
+    
+        }else {
+            resetGame.innerText = "Play again?";
+            return msg1.innerText = `You Win!!! Your score: ${playerPoints} || Computer score: ${computerPoints}`;
+        }
     }
 
 }

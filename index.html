@@ -21,34 +21,40 @@
                 <p class="msg">Rock, paper, scissors?</p>
 
                 <div class="player_vs_computer">
-                    <div class="player1 play__box"></div>
-                    <div class="computer play__box"></div>
+                    <div class="player1 play__box">
+                        <img src="./Assets/rock.png" alt="rock" class="player-choice">
+                    </div>
+                    <div class="computer play__box">
+                        <img src="./Assets/scissors.png" alt="rock" class="computer-choice">
+                    </div>
                 </div>
                 
                 <hr>
 
                 <ul class="game__btns">
                     <li>
-                        <button class="rock">Rock</button>
+                        <button class="rock play__btn">Rock</button>
                     </li>
                     <li>
-                        <button class="paper">Paper</button>
+                        <button class="paper play__btn">Paper</button>
                     </li>
                     <li>
-                        <button class="scissors">Scissors</button>
+                        <button class="scissors play__btn">Scissors</button>
                     </li>     
                 </ul>
+                <p class="reset_game"></p>
             </div>
+            
 
             <div class="score__board">
                 <p class="score">Score Board</p>
 
                 <div class="board">
-                    <p class="player__points">Player 1</p>
-                    <h2 class="points">0</h2>
+                    <p class="player__points player__color">Player 1</p>
+                    <h2 class="points player__score player__color">0</h2>
                     <hr>
-                    <p class="player__points">Computer</p>
-                    <h2 class="points">0</h2>
+                    <p class="player__points computer__color">Computer</p>
+                    <h2 class="points computer__score computer__color">0</h2>
                 </div>
             </div>
         </div>
